@@ -47,6 +47,9 @@ print('\n --------------------------- \n')
 
 # print(sibling_contents[20])
 # print(type(sibling_contents[20]))
+# print(sibling_contents[19])
+# print(type(sibling_contents[19]))
+
 
 sibling_contents_string = []
 for item in sibling_contents:
@@ -55,8 +58,25 @@ for item in sibling_contents:
 
 
 # print(sibling_contents_string)
-print(sibling_contents_string[19])
-print(type(sibling_contents_string[19]))
+# print(sibling_contents_string[19])
+# print(type(sibling_contents_string[19]))
+# print(sibling_contents_string[20])
+# print(type(sibling_contents_string[20]))
+
+
+# sibling_contents_string_without_br = []
+# for item in sibling_contents_string:
+#     if item == '</br>' or '<br/>':
+#         sibling_contents_string.remove(item)
+
+regex = re.compile(r'<.br>|<br.>')
+sibling_contents_string_without_br = [item for item in sibling_contents_string
+                                      if not regex.match(item)]
+
+# print(sibling_contents_string_without_br[8:])
+sibling_contents_clean = sibling_contents_string_without_br[8:]
+print(sibling_contents_clean)
+
 
 
 

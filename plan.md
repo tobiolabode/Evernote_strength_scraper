@@ -7,7 +7,7 @@
     - [ ]
 2. Use Beautiful Soup 4
     - [x] import bs4
-    - [ ] extract dates and numbers
+    - [x] extract dates and numbers
 
 3. scrap html to raw numbers
     - []
