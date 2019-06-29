@@ -48,11 +48,15 @@ print('\n --------------------------- \n')
 # print(sibling_contents[20])
 # print(type(sibling_contents[20]))
 
+sibling_contents_string = []
 for item in sibling_contents:
     item = str(item)
+    sibling_contents_string.append(item)
 
-print(sibling_contents)
-print(type(sibling_contents[20]))
+
+# print(sibling_contents_string)
+print(sibling_contents_string[19])
+print(type(sibling_contents_string[19]))
 
 
 
