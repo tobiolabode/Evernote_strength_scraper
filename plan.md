@@ -9,7 +9,7 @@
     - [x] import bs4
     - [x] extract dates and numbers
 
-3. scrap html to raw numbers
-    - []
-4.  raw numbers to csv
-5. use pandas or google drive
+3.  raw numbers to csv
+    - [ ] find format to extract data to
+    - [ ] extract data to format
+4. use pandas or google drive
