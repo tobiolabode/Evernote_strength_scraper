@@ -23,20 +23,69 @@ inner_div_tag = divtag.span.div
 
 # print(divtag.span.div.next_sibling)
 
+inner_div_tag_text = inner_div_tag.get_text()
+
+
 sibling_contents = []
 for sibling in inner_div_tag.next_siblings:
+    # text_content = sibling.find('').text
+    # print(text_content)
+
     # print(sibling)
     sibling_contents.append(sibling.contents)
-    print(sibling.contents)
+    # print(sibling.contents)
+
 print('\n --------------------------- \n')
 print("Results of list")
-print(sibling_contents)
+# print(sibling_contents, sep='\n')
 
 sibling_contents = list(itertools.chain(*sibling_contents))
 print('\n --------------------------- \n')
 print('\n --------------------------- \n')
 print('\n --------------------------- \n')
+# print(sibling_contents)
+
+# print(sibling_contents[20])
+# print(type(sibling_contents[20]))
+
+for item in sibling_contents:
+    item = str(item)
+
 print(sibling_contents)
+print(type(sibling_contents[20]))
+
+
+
+
+
+# for item in sibling_contents:
+#     if item == isinstance(bs4.element.Tag):
+#         item = str(item)
+#
+# print(sibling_contents)
+
+
+
+
+# # def cleanhtml(raw_html):
+# #     cleanr = re.compile('<.*?>')
+# #     cleantext = re.sub(cleanr, '', raw_html)
+# #     return cleantext
+#
+#
+# sibling_contentsV2 = sibling_contents
+# for item in sibling_contents:
+#     if item == pass:
+#         sibling_contents.remove(item)
+#         sibling_contentsV2 = sibling_contents
+#
+#
+# print('\n --------------------------- \n')
+# print('\n --------------------------- \n')
+# print('\n --------------------------- \n')
+# print(sibling_contentsV2)
+
+
 
 
 
