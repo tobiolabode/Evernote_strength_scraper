@@ -1,0 +1,2 @@
+Date| Squat | Press | Deadlift | Bench |  Power clean | notes |
+    |       |       |          |        |             |      |

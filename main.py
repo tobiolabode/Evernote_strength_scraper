@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import re
 import itertools
+import csv
+
 
 file = open("Starting strength log.html", encoding="utf8")
 soup = BeautifulSoup(file, "html.parser")
@@ -58,11 +60,68 @@ for item in sibling_contents:
 # print(type(sibling_contents_string[20]))
 
 
-
 regex = re.compile(r'<.br>|<br.>')
 sibling_contents_string_without_br = [item for item in sibling_contents_string
                                       if not regex.match(item)]
 
 # print(sibling_contents_string_without_br[8:])
 sibling_contents_clean = sibling_contents_string_without_br[8:]
-print(sibling_contents_clean)
+# print(sibling_contents_clean)
+
+regex_dates = re.compile(r'(Jan(uary)?|Feb(ruary)?|Mar(ch)?|Apr(il)?|May|Jun(e)?|Jul(y)?|Aug(ust)?|Sep(tember)?|Oct(ober)?|Nov(ember)?|Dec(ember)?)')
+regex_squat = re.compile(r'(Sq).*|(sq).*')
+regex_press = re.compile(r'.*(Pr).*|.*(pr).*')
+regex_deadlift = re.compile(r'.*(d?ead).*')
+regex_bench = re.compile(r'.*(B?ench).*')
+regex_power_clean = re.compile(r'.*(P?ower).*')
+regex_other_html = re.compile(r'<[^>]*>')
+regex_ticks = re.compile(r'.*(✔️)')
+
+Dateslist = [date for date in sibling_contents_clean if regex_dates.match(date)]
+# print(Dateslist)
+list_squat = [squat for squat in sibling_contents_clean if regex_squat.match(squat)]
+# print(list_squat)
+Notes_squat_list = []
+for squat in list_squat:
+    if len(squat) > 25:
+        if not regex_ticks.match(squat):
+            Notes_squat_list.append(squat)
+
+# print(Notes_squat_list)
+Press_list = [press for press in sibling_contents_clean if regex_press.match(press)]
+# print(Press_list)
+Notes_press_list = [press for press in Press_list if len(press) > 25 if not regex_ticks.match(press)]
+# print(Notes_press_list)
+
+deadlift_list = [deadlift for deadlift in sibling_contents_clean if
+                 regex_deadlift.match(deadlift)]
+# print(deadlift_list)
+Notes_deadlift_list = [deadlift for deadlift in deadlift_list if len(deadlift) > 25 if not regex_ticks.match(deadlift)]
+# print(Notes_deadlift_list)
+
+
+Bench_list = [bench for bench in sibling_contents_clean if regex_bench.match(bench)]
+# print(Bench_list)
+Notes_bench_list = [Bench for Bench in Bench_list if len(Bench) > 25 if not regex_ticks.match(Bench)]
+# print(Notes_bench_list)
+
+Power_clean_list = [power_clean for power_clean in sibling_contents_clean
+                    if regex_power_clean.match(power_clean)]
+# print(Power_clean_list)
+
+Notes_power_clean_list = [power_clean for power_clean in Power_clean_list if len(power_clean) > 25 if not regex_ticks.match(power_clean)]
+print(Notes_power_clean_list)
+
+
+
+
+
+# with open('lifts.csv', mode='w') as lifts_file:
+#     lifts_writer = csv.writer(lifts_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+
+
+
+
+
+# idea turn emojis into digits of number of adtempts
