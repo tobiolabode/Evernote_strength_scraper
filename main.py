@@ -69,7 +69,7 @@ sibling_contents_string_without_br = [item for item in sibling_contents_string
 sibling_contents_clean = sibling_contents_string_without_br[8:]
 # print(sibling_contents_clean)
 
-regex_dates = re.compile(r'(Jan(uary)?|Feb(ruary)?|Mar(ch)?|Apr(il)?|May|Jun(e)?|Jul(y)?|Aug(ust)?|Sep(tember)?|Oct(ober)?|Nov(ember)?|Dec(ember)?)')
+regex_dates = re.compile(r'(Jan(uary)?|Feb(ruary)?|Mar(ch)?|Apr(il)?|May|Jun(e)?|Jul(y)?|Aug(ust)?|Sep(tember)?|Oct(ober)?|Nov(ember)?|Dec(ember)?)', flags=re.IGNORECASE)
 regex_squat = re.compile(r'(Sq).*|(sq).*')
 regex_press = re.compile(r'.*(Pr).*|.*(pr).*')
 regex_deadlift = re.compile(r'.*(d?ead).*')
@@ -175,17 +175,25 @@ append value to prevois list
 after + 4 to i
 
 '''
+regexlist = [regex_squat, regex_press, regex_deadlift, regex_bench, regex_power_clean]
+master_regex = re.compile(r'.*(?:Pr).*|.*(?:pr).*|(?:Sq).*|(?:sq).*|.*(?:d?ead).*|.*(?:B?ench).*|.*(?:P?ower).*')
+
 while i < len(sibling_contents_clean):
     if regex_dates.search(sibling_contents_clean[i]):
         threelist2.append(sibling_contents_clean[i:i+4])
         print(f"correct, {sibling_contents_clean[i]}")
 
+    elif master_regex.search(sibling_contents_clean[i]):
+            print(f"incorrect, {sibling_contents_clean[i]}")
+            lenoflist = len(threelist2)
+            print(f' length of list: {lenoflist}')
+            threelist2[lenoflist-1].append(sibling_contents_clean[i:i+1])
+            threelist2.append(sibling_contents_clean[i+1:i+5])
+            i += 1
+
     else:
-        print(f"incorrect, {sibling_contents_clean[i]}")
-        lenoflist = len(threelist2)
-        print(lenoflist)
-        threelist2[lenoflist-1].append(sibling_contents_clean[i:i+1])
-        threelist2.append(sibling_contents_clean[i+1:i+5])
+        print(f"incorrect, non-lift, {sibling_contents_clean[i]}")
+        threelist2.append(sibling_contents_clean[i:i+1])
         i += 1
 
     i += 4
