@@ -208,12 +208,53 @@ for item in threelist2:
     contentnumber += 1
 
 
+# turning values to csv loop
+# if value(list) has an nested list inside
+# run isinstance to extract the data
+print("\n ------------------------------- \n ")
+print("\n ------------------------------- \n ")
+print("\n ------------------------------- \n ")
+
+
+for lists in threelist2:
+    for value in lists:
+
+        if isinstance(value, list):
+            # print(f"{value[0]}, nested-list")
+
+            if master_regex.search(value[0]):
+                print(f'{value[0]}, lift')
+                pass
+            else:
+                print(f'{value[0]}, non-lift')
+
+            continue
+
+        if regex_dates.search(value):
+            print("\n")
+            print(f"{value}, Date")
+
+        if regex_squat.search(value):
+            print(f"{value}, lift")
+
+        elif regex_press.search(value):
+            print(f"{value}, lift")
+
+        elif regex_deadlift.search(value):
+            print(f"{value}, lift")
+
+        elif regex_bench.search(value):
+            print(f"{value}, lift")
+
+        elif regex_power_clean.search(value):
+            print(f"{value}, lift")
+
+
+
 
 
 # with open('lifts.csv', mode='w') as lifts_file:
 #     lifts_writer = csv.writer(lifts_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-
-
 
 
 
