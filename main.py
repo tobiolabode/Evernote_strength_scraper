@@ -4,7 +4,6 @@ import itertools
 import csv
 
 
-
 file = open("Starting strength log.html", encoding="utf8")
 soup = BeautifulSoup(file, "html.parser")
 # swap to lxml if any emoji related problems occours
@@ -71,7 +70,7 @@ sibling_contents_clean = sibling_contents_string_without_br[8:]
 
 regex_dates = re.compile(r'(Jan(uary)?|Feb(ruary)?|Mar(ch)?|Apr(il)?|May|Jun(e)?|Jul(y)?|Aug(ust)?|Sep(tember)?|Oct(ober)?|Nov(ember)?|Dec(ember)?)', flags=re.IGNORECASE)
 regex_squat = re.compile(r'(Sq).*|(sq).*')
-regex_press = re.compile(r'.*(Pr).*|.*(pr).*')
+regex_press = re.compile(r'.*(Pr)[^April].*|.*(pr)[^April].*')
 regex_deadlift = re.compile(r'.*(d?ead).*')
 regex_bench = re.compile(r'.*(B?ench).*')
 regex_power_clean = re.compile(r'.*(P?ower).*')
@@ -176,7 +175,7 @@ after + 4 to i
 
 '''
 regexlist = [regex_squat, regex_press, regex_deadlift, regex_bench, regex_power_clean]
-master_regex = re.compile(r'.*(?:Pr).*|.*(?:pr).*|(?:Sq).*|(?:sq).*|.*(?:d?ead).*|.*(?:B?ench).*|.*(?:P?ower).*')
+master_regex = re.compile(r'.*(?:Pr)[^April].*|.*(?:pr)[^April].*|(?:Sq).*|(?:sq).*|.*(?:d?ead).*|.*(?:B?ench).*|.*(?:P?ower).*')
 
 while i < len(sibling_contents_clean):
     if regex_dates.search(sibling_contents_clean[i]):
@@ -216,6 +215,7 @@ print("\n ------------------------------- \n ")
 print("\n ------------------------------- \n ")
 
 
+value_to_list = []
 for lists in threelist2:
     for value in lists:
 
@@ -224,38 +224,93 @@ for lists in threelist2:
 
             if master_regex.search(value[0]):
                 print(f'{value[0]}, lift')
-                pass
+                value_to_list.append(value[0])
             else:
                 print(f'{value[0]}, non-lift')
+                value_to_list.append(value[0])
 
             continue
 
         if regex_dates.search(value):
             print("\n")
             print(f"{value}, Date")
-
+            value_to_list.append(value)
         if regex_squat.search(value):
             print(f"{value}, lift")
+            value_to_list.append(value)
 
         elif regex_press.search(value):
             print(f"{value}, lift")
+            value_to_list.append(value)
 
         elif regex_deadlift.search(value):
             print(f"{value}, lift")
+            value_to_list.append(value)
 
         elif regex_bench.search(value):
             print(f"{value}, lift")
+            value_to_list.append(value)
 
         elif regex_power_clean.search(value):
             print(f"{value}, lift")
+            value_to_list.append(value)
+
+print("\n ------------------------------- \n ")
+print("\n ------------------------------- \n ")
+print("\n ------------------------------- \n ")
+print("\n ------------------------------- \n ")
+print("\n ------------------------------- \n ")
+print("\n ------------------------------- \n ")
+
+
+print(value_to_list)
+for i in value_to_list:
+    print(i)
+
+# i = 0
+# value_to_list2 = []
+# while i < len(value_to_list):
+#     value_to_list2.append(value_to_list[i:i+4])
+#     i += 4
+#
+#
+# print(f"new list:{value_to_list2}")
+# print("\n ------------------------------- \n " * 5)
+#
+# for i in value_to_list2:
+#     print(i)
 
 
 
+header = ["Date", "Squat", "Press", "Deadlift", "Bench", "Power clean", "notes"]
+with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
+    lifts_writer = csv.writer(lifts_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    lifts_writer.writerow(header)
+    values_to_row = []
 
+    for values in value_to_list:
+        if regex_dates.search(values):
+                values_to_row.append(values)
 
-# with open('lifts.csv', mode='w') as lifts_file:
-#     lifts_writer = csv.writer(lifts_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        elif regex_squat.search(values):
+                values_to_row.append(values)
 
+        elif regex_press.search(values):
+                values_to_row.append(values)
+
+        elif regex_deadlift.search(values):
+                values_to_row.append(values)
+
+        elif regex_bench.search(values):
+                values_to_row.append(values)
+
+        elif regex_power_clean.search(values):
+                values_to_row.append(values)
+
+        if len(values_to_row) > 3:
+            lifts_writer.writerow(values_to_row)
+            print(values_to_row)
+            values_to_row.clear()
 
 
 
