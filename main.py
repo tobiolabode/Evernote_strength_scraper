@@ -280,7 +280,7 @@ for i in value_to_list:
 # for i in value_to_list2:
 #     print(i)
 
-
+print("\n ------------------------------- \n " * 5)
 
 header = ["Date", "Squat", "Press", "Deadlift", "Bench", "Power clean", "notes"]
 with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
@@ -307,11 +307,27 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
         elif regex_power_clean.search(values):
                 values_to_row.append(values)
 
-        if len(values_to_row) > 3:
+        if re.search('---', values) or re.search('pra', values) or re.search('forgot', values):
             lifts_writer.writerow(values_to_row)
             print(values_to_row)
             values_to_row.clear()
 
+        if re.search('Tick', values):
+            for column in range(6):
+                values_to_row.insert(0, None)
+            lifts_writer.writerow(values_to_row)
+            print(values_to_row)
+            values_to_row.clear()
+
+        if len(values_to_row) > 3 and regex_dates.search(values_to_row[0]):
+            lifts_writer.writerow(values_to_row)
+            print(values_to_row)
+            values_to_row.clear()
+        else:
+            pass
+
+
 
 
 # idea turn emojis into digits of number of adtempts
+# print len of 4 unless last value is date
