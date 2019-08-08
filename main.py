@@ -288,6 +288,9 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
     lifts_writer.writerow(header)
     values_to_row = []
 
+    # for item in range(7):
+    #     values_to_row.append('TEST')
+
     for values in value_to_list:
         if regex_dates.search(values):
                 values_to_row.append(values)
@@ -296,13 +299,20 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
                 values_to_row.append(values)
 
         elif regex_press.search(values):
-                values_to_row.append(values)
+                values_to_row.insert(2, values)
+                # try:
+                #     for value in values_to_row:
+                #         if value != regex_press.search(values):
+                #             values_to_row.insert(2, 'TEST')
+                # except IndexError as error:
+                #     print(error)
+                #     continue
 
         elif regex_deadlift.search(values):
-                values_to_row.append(values)
+                values_to_row.insert(3, values)
 
         elif regex_bench.search(values):
-                values_to_row.append(values)
+                values_to_row.insert(4, values)
 
         elif regex_power_clean.search(values):
                 values_to_row.append(values)
@@ -320,22 +330,32 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
             values_to_row.clear()
 
         if len(values_to_row) > 3 and regex_dates.search(values_to_row[0]):
-            for line in values_to_row:
-                if regex_bench.search(line):
-                    print('POSTION OF VALUE:')
-                    IndexValue = values_to_row.index(line)
-                    print(values_to_row.index(line))
-                    values_to_row.insert(IndexValue, 'TEST')
-                    values_to_row.insert(IndexValue + 1, 'TEST')
-                    break
+            # for line in values_to_row:
+            #     if regex_bench.search(line):
+            #         print('POSTION OF VALUE:')
+            #         IndexValue = values_to_row.index(line)
+            #         print(values_to_row.index(line))
+            #         values_to_row.insert(IndexValue, 'TEST')
+            #         values_to_row.insert(IndexValue + 1, 'TEST')
+            #         break
+            #
+            #     elif regex_deadlift.search(line):
+            #         print('POSTION OF VALUE:')
+            #         IndexValue = values_to_row.index(line)
+            #         print(values_to_row.index(line))
+            #         values_to_row.insert(IndexValue - 1, 'TEST')
+            #         break
 
 
             # if regex_bench.search(values_to_row[2]):
             #     values_to_row.insert(2, 'TEST')
             #     values_to_row.insert(3, 'TEST')
+            # Bench
+            if regex_bench.search(values_to_row[2]):
+                values_to_row.insert(4, values_to_row[2])
+                values_to_row.pop(2)
+                values_to_row.insert(2, 'TEST')
 
-            if regex_deadlift.search(values_to_row[0]):
-                pass
             lifts_writer.writerow(values_to_row)
             print(values_to_row)
             values_to_row.clear()
