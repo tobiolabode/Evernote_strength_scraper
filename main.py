@@ -317,6 +317,11 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
         elif regex_power_clean.search(values):
                 values_to_row.append(values)
 
+        # if re.search('October 4', values):
+        #     lifts_writer.writerow(values_to_row)
+        #     if re.search('Deadlift: ---', values):
+        #         break
+
         if re.search('---', values) or re.search('pra', values) or re.search('forgot', values):
             lifts_writer.writerow(values_to_row)
             print(values_to_row)
@@ -329,32 +334,76 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
             print(values_to_row)
             values_to_row.clear()
 
+
+
         if len(values_to_row) > 3 and regex_dates.search(values_to_row[0]):
-            # for line in values_to_row:
-            #     if regex_bench.search(line):
-            #         print('POSTION OF VALUE:')
-            #         IndexValue = values_to_row.index(line)
-            #         print(values_to_row.index(line))
-            #         values_to_row.insert(IndexValue, 'TEST')
-            #         values_to_row.insert(IndexValue + 1, 'TEST')
-            #         break
-            #
-            #     elif regex_deadlift.search(line):
-            #         print('POSTION OF VALUE:')
-            #         IndexValue = values_to_row.index(line)
-            #         print(values_to_row.index(line))
-            #         values_to_row.insert(IndexValue - 1, 'TEST')
-            #         break
 
+            # exceptions order
+            if values_to_row[0] == 'September 27:':
+                values_to_row.insert(4, 'TEST')
+                values_to_row.insert(5, 'TEST')
+            if values_to_row[0] == '21 April':
+                values_to_row.insert(3, values_to_row[2])
+                values_to_row.pop(2)
+                values_to_row.insert(2, 'TEST')
+                values_to_row.insert(4, values_to_row[3])
+                values_to_row.pop(3)
+                values_to_row.insert(3, 'TEST')
 
-            # if regex_bench.search(values_to_row[2]):
-            #     values_to_row.insert(2, 'TEST')
-            #     values_to_row.insert(3, 'TEST')
             # Bench
             if regex_bench.search(values_to_row[2]):
                 values_to_row.insert(4, values_to_row[2])
                 values_to_row.pop(2)
                 values_to_row.insert(2, 'TEST')
+                values_to_row.insert(6, 'TEST')
+
+            if regex_power_clean.search(values_to_row[3]):
+                values_to_row.insert(5, values_to_row[3])
+                values_to_row.pop(3)
+                values_to_row.insert(3, 'TEST')
+                values_to_row.insert(4, 'TEST')
+
+
+
+            # if regex_deadlift.search(values_to_row[3]):
+            #     values_to_row.insert(5, 'TEST')
+
+            # if value pasts theresolod of chars, silpt after nth amount of charcters.
+            # squat 10 chars
+            if regex_squat.search(values_to_row[1]) and not (regex_ticks.search(values_to_row[1])):
+                if len(values_to_row[1]) > 10:
+                    values_to_row.insert(7, values_to_row[1])
+                else:
+                    pass
+            if regex_press.search(values_to_row[2]) and not (regex_ticks.search(values_to_row[2])):
+                if len(values_to_row[2]) > 9:
+                    values_to_row.insert(7, values_to_row[2])
+                else:
+                    pass
+            if regex_deadlift.search(values_to_row[3]) and not (regex_ticks.search(values_to_row[3])):
+                if len(values_to_row[3]) > 13:
+                    values_to_row.insert(7, values_to_row[3])
+                else:
+                    pass
+            try:
+                if regex_bench.search(values_to_row[4]) and not (regex_ticks.search(values_to_row[4])):
+                    if len(values_to_row[4]) > 10:
+                        values_to_row.insert(7, values_to_row[4])
+                    else:
+                        pass
+            except IndexError:
+                pass
+
+            try:
+                if regex_power_clean.search(values_to_row[5]) and not (regex_ticks.search(values_to_row[5])):
+                    if len(values_to_row[5]) > 15:
+                        values_to_row.insert(7, values_to_row[5])
+                    else:
+                        pass
+            except IndexError:
+                pass
+
+                # making adtempts column to places the ticks ex: squat adtempts, benc adtempts
 
             lifts_writer.writerow(values_to_row)
             print(values_to_row)
