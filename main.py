@@ -346,9 +346,9 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
                 values_to_row.insert(3, values_to_row[2])
                 values_to_row.pop(2)
                 values_to_row.insert(2, 'TEST')
-                values_to_row.insert(4, values_to_row[3])
-                values_to_row.pop(3)
-                values_to_row.insert(3, 'TEST')
+            #     values_to_row.insert(4, values_to_row[3])
+            #     values_to_row.pop(3)
+            #     values_to_row.insert(3, 'TEST')
 
             # Bench
             if regex_bench.search(values_to_row[2]):
@@ -370,8 +370,9 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
 
             # if value pasts theresolod of chars, silpt after nth amount of charcters.
             # squat 10 chars
-            if regex_squat.search(values_to_row[1]) and not (regex_ticks.search(values_to_row[1])):
-                if len(values_to_row[1]) > 10:
+
+            if regex_squat.search(values_to_row[1]):
+                if len(values_to_row[1].replace('✔️', '')) > 14:
                     values_to_row.insert(7, values_to_row[1])
                 else:
                     pass

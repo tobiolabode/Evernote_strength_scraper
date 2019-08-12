@@ -1,6 +1,6 @@
 Date,Squat,Press,Deadlift,Bench,Power clean,notes
 September 14:,Squat 5x3 empty bar (big/hollow),Overhead press 5x3 empty bar  (big/hollow),Deadlift 1x5 5lbs  (big/hollow),Squat 5x3 empty bar (big/hollow),Overhead press 5x3 empty bar  (big/hollow),Deadlift 1x5 5lbs  (big/hollow)
-September 16:,Squat: 2.5kg,TEST,Deadlift: 5kg,Bench: 5kg,TEST,Squat: 2.5kg
+September 16:,Squat: 2.5kg,TEST,Deadlift: 5kg,Bench: 5kg,TEST
 September 18:,Squat 10kg,Overhead 2.5kg,Deadlift 2.5kg,Deadlift 2.5kg
 September 20:,Squat 15kg,TEST,Deadlift 10kg,Bench 10kg,TEST
 September 22:,Squat 20kg,Overhead 5kg (couldn't complete last rep),Deadlift: 15kg,Deadlift: 15kg
@@ -20,7 +20,7 @@ October 18,Squat: 35kg✔️,Press: 5kg✔️,TEST,TEST,Power clean: 5kg,Power 
 October 20,Squat 39kg✔️,TEST,Deadlift 60kg✔️,Bench 17.5kg✔️,TEST
 October 22 had a  Cold ,Squat 37.5✔️,Press 7.5✔️,TEST,TEST,Power clean 10kg✔️
 October 25 had a cold ,Squat 35kg one set 20kg deep squats,TEST,Deadlift 30kg ,Bench 15kg one set 17.5 two sets,TEST,Squat 35kg one set 20kg deep squats,Bench 15kg one set 17.5 two sets,Deadlift 30kg 
-October 31,Sqaut 20kg deep ✔️,Press 2.5✔️,TEST,TEST,Power clean
+October 31,Sqaut 20kg deep ✔️,Press 2.5✔️,TEST,TEST,Power clean,Sqaut 20kg deep ✔️
 November 7,Sqaut 20kg deep,TEST,Deadlift 20,Bench 15,TEST,Sqaut 20kg deep
 November 9,Sqaut 25kg,Press 5kg,Deadlift 35kg
 November 11,Squat 25,TEST,Deadlift 15,Bench 17.5,TEST
@@ -85,7 +85,7 @@ March 6,Sqaut 45 ✔️✔️✔️(✔️),Deadlift 55 ✔️✔️✔️ (✔�
 14 April ,Sqaut 50 ✔️✔️✔️✔️✔️(✔️),Press 15 ✔️✔️✔️✔️(✔️),TEST,TEST,Power clean 25 (✔️)
 17 April,Sqaut 52.5 ✔️,Deadlift 57.5 ✔️✔️✔️✔️✔️(✔️),Bench 27.5 ✔️✔️✔️✔️✔️(✔️)
 19 April,Sqaut 52.5 ✔️(✔️),Press 15 ✔️✔️✔️✔️✔️(❌) missed one rep,TEST,TEST,Power clean 25 ✔️(✔️) 
-21 April,Squat 52.5 ✔️✔️(❌ form slipped final two reps),TEST,TEST,Deadlift 60 (✔️),Bench 30 (❌ couldn't complete final two reps)
+21 April,Squat 52.5 ✔️✔️(❌ form slipped final two reps),TEST,Deadlift 60 (✔️),Bench 30 (❌ couldn't complete final two reps),Squat 52.5 ✔️✔️(❌ form slipped final two reps),Bench 30 (❌ couldn't complete final two reps)
 26 April,Sqaut 25 ,TEST,Deadlift 30,Bench 15,TEST
 28 April,squat 25,Press 7.5,TEST,TEST,Power clean 12.5,Power clean 12.5
 3 may ,Squat 42.5,Press 12,TEST,TEST,Power clean 21
@@ -93,7 +93,7 @@ March 6,Sqaut 45 ✔️✔️✔️(✔️),Deadlift 55 ✔️✔️✔️ (✔�
 12 May,Sqaut 50 ✔️ ✔️✔️ (✔️),TEST,Deadlift 60 (✔️),Bench 30 (❌) 27.5 X 3 (❌) only 2 sets,TEST,Bench 30 (❌) 27.5 X 3 (❌) only 2 sets
 may N/A,Sqaut 50 ✔️✔️✔️✔️ (✔️),Press 12.5 ✔️✔️(✔️),TEST,TEST,Power clean 22.5 ✔️✔️(✔️)
 14 may,Squat  50 ✔️✔️✔️✔️✔️(❌),TEST,Deadlift 60 ✔️ (✔️),Bench 27.5 (✔️),TEST
-17 may,Squat 50 ✔️✔️✔️✔️✔️ (❌) 40 X 1,Press clean 22.5 ✔️✔️✔️ (),Press 12.5 ✔️✔️✔️(✔️)
+17 may,Squat 50 ✔️✔️✔️✔️✔️ (❌) 40 X 1,Press clean 22.5 ✔️✔️✔️ (),Press 12.5 ✔️✔️✔️(✔️),Squat 50 ✔️✔️✔️✔️✔️ (❌) 40 X 1
 19 may,Sqaut 50 ✔️✔️✔️✔️✔️ (✔️),TEST,Deadlift 60 ✔️✔️ (✔️),Bench 27.5 ✔️(✔️),TEST
 22 may,Squat 52.5 (❌) 50 X 3 (failed one rep),Press 12.5 ✔️✔️✔️✔️(✔️),TEST,TEST,Power clean 22.5 ✔️✔️✔️✔️(✔️),Squat 52.5 (❌) 50 X 3 (failed one rep)
 24 may,Squat 50 (extra workout to fill more comfortable),TEST,Deadlift 60 ✔️✔️✔️(✔️),Bench 27.5,TEST,Squat 50 (extra workout to fill more comfortable)
@@ -104,7 +104,7 @@ may N/A,Sqaut 50 ✔️✔️✔️✔️ (✔️),Press 12.5 ✔️✔️(✔�
 5 June ,Sqaut 45,Press 12.5,TEST,TEST,Power clean 20,Press 12.5
 7 June ,Squat 52.5 ✔️✔️✔️(✔️),TEST,Deadlift 62.5 (✔️),Bench 27.5✔️✔️✔️✔️✔️(),TEST
 9 June,Sqaut 52.5 ✔️✔️✔️✔️(✔️),Press 15 ✔️(✔️),TEST,TEST,Power clean 25 (✔️)
-16 June,Squat 55 ✔️(❌) 50kg,TEST,Deadlift 65 ✔️✔️(✔️),Bench 30 ✔️(✔️),TEST
-19 June ,Squat 55 ✔️ (❌) 50kg,Press 15 ✔️✔️ (✔️),TEST,TEST,Power clean 25 ✔️ (✔️)
+16 June,Squat 55 ✔️(❌) 50kg,TEST,Deadlift 65 ✔️✔️(✔️),Bench 30 ✔️(✔️),TEST,Squat 55 ✔️(❌) 50kg
+19 June ,Squat 55 ✔️ (❌) 50kg,Press 15 ✔️✔️ (✔️),TEST,TEST,Power clean 25 ✔️ (✔️),Squat 55 ✔️ (❌) 50kg
 21 June,Squat 55 ✔️(✔️),TEST,Deadlift 65 ✔️✔️✔️(✔️),Bench 30 ✔️✔️ (✔️),TEST
 23 June,Sqaut 55 ✔️✔️(✔️),Press 15 ✔️✔️✔️(✔️),TEST,TEST,Power clean 25 ✔️✔️ (✔️)
