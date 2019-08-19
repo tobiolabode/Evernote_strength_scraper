@@ -4,7 +4,7 @@ import itertools
 import csv
 
 
-file = open("Starting strength log.html", encoding="utf8")
+file = open("Starting strength log2.html", encoding="utf8")
 soup = BeautifulSoup(file, "html.parser")
 # swap to lxml if any emoji related problems occours
 
@@ -282,8 +282,9 @@ for i in value_to_list:
 
 print("\n ------------------------------- \n " * 5)
 
+
 header = ["Date", "Squat", "Press", "Deadlift", "Bench", "Power clean", "notes", 'notes_plus']
-with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
+with open('lifts2.csv', mode='w', encoding='utf-8') as lifts_file:
     lifts_writer = csv.writer(lifts_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     lifts_writer.writerow(header)
     values_to_row = []
@@ -292,6 +293,8 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
     #     values_to_row.append('TEST')
 
     for values in value_to_list:
+
+
         if regex_dates.search(values):
                 values_to_row.append(values)
 
@@ -327,14 +330,18 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
             print(values_to_row)
             values_to_row.clear()
 
+        if re.search('Normal', values) or re.search('DELOAD', values) or re.search('REGAINING', values):
+            # values_to_row.append(values)
+            lifts_writer.writerow(values_to_row)
+            print(values_to_row)
+            values_to_row.clear()
+
         if re.search('Tick', values):
             for column in range(6):
                 values_to_row.insert(0, None)
             lifts_writer.writerow(values_to_row)
             print(values_to_row)
             values_to_row.clear()
-
-
 
         if len(values_to_row) > 3 and regex_dates.search(values_to_row[0]):
 

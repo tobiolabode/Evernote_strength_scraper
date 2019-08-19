@@ -8,17 +8,17 @@ regex_deadlift = re.compile(r'.*(d?ead).*')
 regex_bench = re.compile(r'.*(B?ench).*')
 regex_press = re.compile(r'.*(Pr)[^April].*|.*(pr)[^April].*')
 
-df = pd.read_csv('lifts.csv')
+df = pd.read_csv('Lifts_edited.csv')
 print(df.head())
 
-filter_mask = df['Press'] == df.Press.str.match(regex_deadlift), df.Deadlift
-filter_mask2 = df['Deadlift'] == df.Deadlift.str.match(regex_bench), df.Bench
-
-print(df.loc[66:88, ['Date', 'Press']])
-print(df.loc[66:88, ['Date', 'Deadlift']])
-
-df['Deadlift'] = np.where(df['Deadlift'] == df.Deadlift.str.contains(regex_bench), df.Bench, df['Deadlift'])
-df['Press'] = np.where(df['Press'] == df.Press.str.contains(regex_deadlift), df.Deadlift, df['Press'])
+# filter_mask = df['Press'] == df.Press.str.match(regex_deadlift), df.Deadlift
+# filter_mask2 = df['Deadlift'] == df.Deadlift.str.match(regex_bench), df.Bench
+#
+# print(df.loc[66:88, ['Date', 'Press']])
+# print(df.loc[66:88, ['Date', 'Deadlift']])
+#
+# df['Deadlift'] = np.where(df['Deadlift'] == df.Deadlift.str.contains(regex_bench), df.Bench, df['Deadlift'])
+# df['Press'] = np.where(df['Press'] == df.Press.str.contains(regex_deadlift), df.Deadlift, df['Press'])
 
 # check if in column correct value
 # if not check for value in the rest of the column
@@ -74,8 +74,8 @@ def organiser(row):
 # print(df.where(filter_mask, inplace=True))
 
 
-print(df.loc[66:88, ['Date', 'Press']])
-print(df.loc[66:88, ['Date', 'Deadlift']])
+# print(df.loc[66:88, ['Date', 'Press']])
+# print(df.loc[66:88, ['Date', 'Deadlift']])
 
 
 
@@ -106,4 +106,4 @@ df['Power clean'] = df['Power clean'].str.strip()
 print('\n ------------------------------ \n ' * 10)
 
 # print(df.head())
-df.to_csv('lifts_clean.csv', index=False, encoding='utf-8')
+df.to_csv('lifts_clean2.csv', index=False, encoding='utf-8')
