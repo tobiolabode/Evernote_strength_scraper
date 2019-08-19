@@ -282,7 +282,7 @@ for i in value_to_list:
 
 print("\n ------------------------------- \n " * 5)
 
-header = ["Date", "Squat", "Press", "Deadlift", "Bench", "Power clean", "notes"]
+header = ["Date", "Squat", "Press", "Deadlift", "Bench", "Power clean", "notes", 'notes_plus']
 with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
     lifts_writer = csv.writer(lifts_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     lifts_writer.writerow(header)
@@ -376,19 +376,19 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
                     values_to_row.insert(7, values_to_row[1])
                 else:
                     pass
-            if regex_press.search(values_to_row[2]) and not (regex_ticks.search(values_to_row[2])):
-                if len(values_to_row[2]) > 9:
+            if regex_press.search(values_to_row[2]):
+                if len(values_to_row[2].replace('✔️', '')) > 18:
                     values_to_row.insert(7, values_to_row[2])
                 else:
                     pass
-            if regex_deadlift.search(values_to_row[3]) and not (regex_ticks.search(values_to_row[3])):
-                if len(values_to_row[3]) > 13:
+            if regex_deadlift.search(values_to_row[3]):
+                if len(values_to_row[3].replace('✔️', '')) > 21:
                     values_to_row.insert(7, values_to_row[3])
                 else:
                     pass
             try:
-                if regex_bench.search(values_to_row[4]) and not (regex_ticks.search(values_to_row[4])):
-                    if len(values_to_row[4]) > 10:
+                if regex_bench.search(values_to_row[4]):
+                    if len(values_to_row[4].replace('✔️', '')) > 15:
                         values_to_row.insert(7, values_to_row[4])
                     else:
                         pass
@@ -396,8 +396,8 @@ with open('lifts.csv', mode='w', encoding='utf-8') as lifts_file:
                 pass
 
             try:
-                if regex_power_clean.search(values_to_row[5]) and not (regex_ticks.search(values_to_row[5])):
-                    if len(values_to_row[5]) > 15:
+                if regex_power_clean.search(values_to_row[5]):
+                    if len(values_to_row[5].replace('✔️', '')) > 20:
                         values_to_row.insert(7, values_to_row[5])
                     else:
                         pass
