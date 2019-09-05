@@ -31,7 +31,7 @@ pip install pandas
 
 Using the example of an anacoda set up to make the enviroment
 
-Call on conda create env to create you enviroment
+Call on conda create env to create your enviroment
 
 ```
 conda create --name myenv
@@ -46,8 +46,26 @@ Now you must install the third party packages that allow this program to run.
 
 See the Prerequisites section above  
 
-### Formating your file
-TO DO
+### formatting your file
+The formatting of the evernote note looked like this:
+
+```
+December 5
+Sqaut 32.5
+Bench press 17.5
+Deadlift 37.5
+
+December 7
+Sqaut 32.5
+Press 10 (Only two sets )
+Power clean 15
+
+December 9
+Sqaut 32.5
+Bench 20
+Deadlift 40
+```
+
 
 
 ### Importing your file
