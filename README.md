@@ -44,7 +44,7 @@ conda activate myenv
 
 Now you must install the third party packages that allow this program to run.
 
-See the Prerequisites section above  
+🔼🔼🔼See the Prerequisites section above🔼🔼🔼
 
 ### Formatting your file
 The formatting of the evernote note looked like this:
