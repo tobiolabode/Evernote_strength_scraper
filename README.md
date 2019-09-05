@@ -46,7 +46,7 @@ Now you must install the third party packages that allow this program to run.
 
 See the Prerequisites section above  
 
-### formatting your file
+### Formatting your file
 The formatting of the evernote note looked like this:
 
 ```
@@ -66,11 +66,12 @@ Bench 20
 Deadlift 40
 ```
 
+![formatting](https://github.com/tobiolabode/Evernote_strength_scraper/blob/master/Evernote%20note%20OG.png)
 
 
 ### Importing your file
 Your file must be html file. Please use the evernote export function
-PLACE IMAGE HERE
+![exporting](https://github.com/tobiolabode/Evernote_strength_scraper/blob/master/export%20options.png)
 
 Replace the file path in the file varible 
 
