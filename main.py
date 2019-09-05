@@ -6,7 +6,7 @@ import csv
 
 file = open("Starting strength log2.html", encoding="utf8")
 soup = BeautifulSoup(file, "html.parser")
-# swap to lxml if any emoji related problems occours
+
 
 # print(soup.prettify())
 bodyhtml = soup.find("body")
@@ -77,87 +77,6 @@ regex_power_clean = re.compile(r'.*(P?ower).*')
 regex_other_html = re.compile(r'<[^>]*>')
 regex_ticks = re.compile(r'.*(✔️)')
 regex_crosses = re.compile(r'.*(❌)')
-
-Dateslist = [date for date in sibling_contents_clean if regex_dates.match(date)]
-# print(Dateslist)
-list_squat = [squat for squat in sibling_contents_clean if regex_squat.match(squat)]
-# print(list_squat)
-Notes_squat_list = []
-for squat in list_squat:
-    if len(squat) > 25:
-        if regex_crosses.match(squat):
-            Notes_squat_list.append(squat)
-        if not regex_ticks.match(squat):
-            Notes_squat_list.append(squat)
-
-# print(Notes_squat_list)
-Press_list = [press for press in sibling_contents_clean if regex_press.match(press)]
-# print(Press_list)
-
-
-Notes_press_list = []
-for Press in Press_list:
-    if len(Press) > 25:
-        if regex_crosses.match(Press):
-            Notes_press_list.append(Press)
-        if not regex_ticks.match(Press):
-            Notes_press_list.append(Press)
-
-# print(Notes_press_list)
-
-deadlift_list = [deadlift for deadlift in sibling_contents_clean if
-                 regex_deadlift.match(deadlift)]
-# print(deadlift_list)
-
-
-Notes_deadlift_list = []
-for deadlift in deadlift_list:
-    if len(deadlift) > 25:
-        if regex_crosses.match(deadlift):
-            Notes_deadlift_list.append(deadlift)
-        if not regex_ticks.match(deadlift):
-            Notes_deadlift_list.append(deadlift)
-
-# print(Notes_deadlift_list)
-
-
-Bench_list = [bench for bench in sibling_contents_clean if regex_bench.match(bench)]
-# print(Bench_list)
-
-
-Notes_bench_list = []
-for bench in Bench_list:
-    if len(bench) > 25:
-        if regex_crosses.match(bench):
-            Notes_bench_list.append(bench)
-        if not regex_ticks.match(bench):
-            Notes_bench_list.append(bench)
-
-# print(Notes_bench_list)
-
-Power_clean_list = [power_clean for power_clean in sibling_contents_clean
-                    if regex_power_clean.match(power_clean)]
-# print(Power_clean_list)
-
-# Notes_power_clean_list = [power_clean for power_clean in Power_clean_list if len(power_clean) > 25 if not regex_ticks.match(power_clean)]
-# import pdb; pdb.set_trace()
-
-Notes_power_clean_list = []
-for power_clean in Power_clean_list:
-    if len(power_clean) > 25:
-        if regex_crosses.match(power_clean):
-            Notes_power_clean_list.append(power_clean)
-        else:
-            pass
-        if not regex_ticks.match(power_clean):
-            Notes_power_clean_list.append(power_clean)
-
-
-# print(Notes_power_clean_list)
-
-zipped = zip(Dateslist, list_squat)
-zipped = set(zipped)
-# print(zipped)
 
 
 threelist = [sibling_contents_clean[i:i+4] for i in range(0,
@@ -267,18 +186,7 @@ print(value_to_list)
 for i in value_to_list:
     print(i)
 
-# i = 0
-# value_to_list2 = []
-# while i < len(value_to_list):
-#     value_to_list2.append(value_to_list[i:i+4])
-#     i += 4
-#
-#
-# print(f"new list:{value_to_list2}")
-# print("\n ------------------------------- \n " * 5)
-#
-# for i in value_to_list2:
-#     print(i)
+
 
 print("\n ------------------------------- \n " * 5)
 
