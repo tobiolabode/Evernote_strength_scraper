@@ -1,10 +1,11 @@
 # Evernote_strength_scraper
+![image](README_Image.png)
 A scraper which extracts my lifting data (via html) into an csv file. 
 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
